@@ -12,7 +12,7 @@ class User {
     @Column({ length: 50 })
     name: string;
 
-    @Column({ length: 50, unique: true })
+    @Column({ length: 50, unique: true, nullable: false})
     email: string
 
     @Column({ length: 120 })
