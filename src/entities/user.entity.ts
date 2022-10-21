@@ -1,7 +1,8 @@
 import { Hash, randomUUID } from "crypto";
 import { v4 as uuidv4 } from "uuid"
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany } from "typeorm";
 import { Exclude } from "class-transformer";
+import Schedules_user_properties from "./schedules_user_properties.entity";
 
 @Entity('users') 
 class User {
@@ -31,8 +32,8 @@ class User {
     @UpdateDateColumn()
     updatedAt: Date;
 
-    @DeleteDateColumn()
-    deleteAt?: Date;
+    @OneToMany(() => Schedules_user_properties, schedules => schedules.user)
+    schedules: Schedules_user_properties[]
 
 }
 
