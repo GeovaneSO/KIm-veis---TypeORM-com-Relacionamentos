@@ -6,8 +6,8 @@ const listUsersController = async (req: Request, res: Response) => {
 
     const listUser = await listUsersService();
 
-        return res.status(200).json(instanceToPlain(listUser));
+    return res.status(200).json(instanceToPlain(listUser));
 
-    };
+};
 
 export default listUsersController;

@@ -6,10 +6,10 @@ const createUserController = async (req: Request, res: Response) => {
 
     const user: IUserRequest= req.body;
 
-        const newUser: IUser = await createUserService(user);
+    const newUser: IUser = await createUserService(user);
 
-        return res.status(201).json(newUser);
+    return res.status(201).json(newUser);
 
-    };
+};
 
 export default createUserController;

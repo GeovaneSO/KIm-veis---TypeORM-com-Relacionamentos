@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import AppDataSource from "../data-source";
-import { User } from "../entities/user.entity";
-import { AppError } from "../errors/appErrors";
+import AppDataSource from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors/appErrors";
 
 const verifyUserEmail = async (req: Request, res: Response, next: NextFunction) => {
     try{
@@ -13,9 +13,8 @@ const verifyUserEmail = async (req: Request, res: Response, next: NextFunction) 
     
         const emailAlreadyExists = users.find(user => user.email === email);
         
-        if (emailAlreadyExists) {
-            throw new AppError(400,"Email already exists")
-        };
+        if (emailAlreadyExists) {throw new AppError(400,"Email already exists")};
+        
         next();
 
     }  catch (error){

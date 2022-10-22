@@ -1,7 +1,10 @@
+// import { Entity } from "typeorm";
 import { Request, Response, NextFunction } from "express";
-import AppDataSource from "../data-source";
-import { User } from "../entities/user.entity";
-import { AppError, handleError } from "../errors/appErrors";
+import AppDataSource from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { AppError, handleError } from "./../../errors/appErrors";
+// import { User } from "../entities/user.Entity";
+// import { AppError, handleError } from "../errors/AppError";
 
 const verifyIsActive = async (req: Request, res: Response, next: NextFunction) => {
     try {

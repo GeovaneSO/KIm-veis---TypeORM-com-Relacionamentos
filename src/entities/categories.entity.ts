@@ -6,7 +6,7 @@ class Categories{
     @PrimaryGeneratedColumn('uuid')
     readonly id: string
 
-    @Column({length: 100, unique: true, nullable: true})
+    @Column({length: 100, unique: true, nullable: false})
     name: string
 
     @OneToMany(() => Properties, property => property.category)
