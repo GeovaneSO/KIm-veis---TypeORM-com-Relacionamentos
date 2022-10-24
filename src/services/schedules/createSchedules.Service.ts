@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source";
 import Schedules_user_properties from "../../entities/schedules_user_properties.entity";
 import { ISchedule, IScheduleRequest } from "../../interfaces/schedules";
 
-const createSchedulesService = async (schedules: IScheduleRequest, userId: string): Promise<ISchedule> => {
+const createSchedulesService = async (schedules: IScheduleRequest, userId: string): Promise<object> => {
 
     const scheduleRepository = AppDataSource.getRepository(Schedules_user_properties);
   
@@ -15,14 +15,14 @@ const createSchedulesService = async (schedules: IScheduleRequest, userId: strin
     const newSchedules = new Schedules_user_properties();
 
     newSchedules.date = date;
-    newSchedules.hour = date;
+    newSchedules.hour = hour;
     newSchedules.user = userId;
     newSchedules.property = schedules.propertyId
 
     await scheduleRepository.save(newSchedules)
     
-    const {} = schedules
-    return newSchedules;
+    const message = {message: 'scheduled visit'}
+    return message;
 }
 
 export default createSchedulesService;

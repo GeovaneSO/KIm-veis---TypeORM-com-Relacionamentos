@@ -15,7 +15,6 @@ const listPropertiesInCategoryService = async (id: string) => {
         
         return property.category
     });
-    console.log(propertiesFiltered)
     
     return propertiesFiltered;
 
