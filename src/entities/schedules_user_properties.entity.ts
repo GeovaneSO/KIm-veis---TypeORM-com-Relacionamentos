@@ -11,15 +11,13 @@ class Schedules_user_properties {
     date: Date
 
     @Column('time', {name: 'hour'})
-    hour: Date;
+    hour: number;
 
     @ManyToOne(() => Properties, property => property.schedules)
     property: string;
     
     @ManyToOne(() => User, user => user.schedules)
-    user: string
-
-
+    user: string;
     
 }
 
