@@ -14,10 +14,10 @@ class Schedules_user_properties {
     hour: Date;
 
     @ManyToOne(() => Properties, property => property.schedules)
-    property: Properties;
+    property: string;
     
     @ManyToOne(() => User, user => user.schedules)
-    user: User
+    user: string
 
 
     
