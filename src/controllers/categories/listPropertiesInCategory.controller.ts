@@ -6,7 +6,6 @@ const listPropertiesInCategoryController = async (req: Request, res:Response, ne
     const id = req.params.id;
    
     const listProperties = await listPropertiesInCategoryService(id);
-    console.log(id)
 
     return res.status(200).json(listProperties);
 

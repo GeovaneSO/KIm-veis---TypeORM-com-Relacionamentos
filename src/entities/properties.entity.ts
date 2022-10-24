@@ -14,7 +14,8 @@ class Properties{
     @Column({name: 'value', type: 'decimal', precision: 12, scale: 2})
     value: number;
 
-    @Column({type: 'integer', nullable: true})
+    @Column({name: 'size', type: 'integer'})
+    size: number;
 
     @CreateDateColumn()
     createdAt: Date;
@@ -24,19 +25,20 @@ class Properties{
 
     @OneToOne((type) => Addresses, {
         eager: true
-    })
-
+    }) 
     @JoinColumn()
-    addresses: Addresses;
+    address: Addresses;
 
     @OneToMany(() => Schedules_user_properties, schedules => schedules.property, {
         eager: true
     })
     schedules: Schedules_user_properties[]
     
-    @ManyToOne(() => Categories, (category) => category.properties)
+    @ManyToOne(() => Categories, (category) => category.properties, {
+        eager: true
+    })
     @JoinColumn()
-    category: Categories;
+    category: string
     
 }
 export default Properties;
