@@ -10,17 +10,20 @@ const verifyCategoryName = async (req: Request, res: Response, next: NextFunctio
         
         const name = req.body.name;
 
-        console.log(name)
         const category = await categoryRepository.findOneBy({name});
         
         if(category){throw new AppError(400,"category already exists")};
+
         next();
 
     } catch (error) {
+
         if(error instanceof AppError){
-            handleError(error, res)
-        }
-    }    
-}    
+
+            handleError(error, res);
+
+        };
+    }; 
+};    
 
 export default verifyCategoryName;
