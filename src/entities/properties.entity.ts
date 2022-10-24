@@ -38,7 +38,7 @@ class Properties{
         eager: true
     })
     @JoinColumn()
-    category: string
+    category: any
     
 }
 export default Properties;

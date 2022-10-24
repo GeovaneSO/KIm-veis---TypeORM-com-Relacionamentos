@@ -1,11 +1,24 @@
 import AppDataSource from "../../data-source";
+import Categories from "../../entities/categories.entity";
 import Properties from "../../entities/properties.entity";
 
 const listPropertiesInCategoryService = async (id: string) => {
+    
     const propertyRepository = AppDataSource.getRepository(Properties);
 
+    const categoryRepository = AppDataSource.getRepository(Categories);
+    
     const properties = await propertyRepository.find()
-    // const propertiesInCategory = properties.find((property) => property. === id)
-    return properties
-}
+
+
+    const propertiesFiltered = properties.filter((property) => {
+        
+        return property.category
+    });
+    console.log(propertiesFiltered)
+    
+    return propertiesFiltered;
+
+};
+
 export default listPropertiesInCategoryService;
