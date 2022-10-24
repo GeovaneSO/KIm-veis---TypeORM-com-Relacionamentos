@@ -6,7 +6,7 @@ import { User } from "../../entities/user.entity";
 import { updateUserSerializer } from "../../serializers";
 import { AppError } from "../../errors/appErrors";
 
-const updateUserService = async (user: IUserUpdate, isAdm: boolean, id: string, tokenId: string): Promise<IUser> => {
+const updateUserService = async (user: IUserUpdate, isAdm: boolean, id: string, tokenId: string): Promise<IUser | string> => {
 
     const serialized = await updateUserSerializer.validate(user, {
         abortEarly: true,
@@ -17,15 +17,13 @@ const updateUserService = async (user: IUserUpdate, isAdm: boolean, id: string, 
     
     const findUser = await userRepository.findOneBy({id});
 
-    if(!findUser){throw new AppError(401,'User not found')};
-
-    if(!isAdm){throw new AppError(401, 'User is not Adm')};
+    if(!findUser){return'User not found'};
 
     await userRepository.update(
         id,{
-            name: serialized.name ? serialized.name : findUser.name,
-            email: serialized.email ? serialized.email : findUser.email,
-            password: serialized.password ? await hash(serialized.password, 10) : findUser.password
+            name: serialized.name ? serialized.name : findUser!.name,
+            email: serialized.email ? serialized.email : findUser!.email,
+            password: serialized.password ? await hash(serialized.password, 10) : findUser!.password
         }
     );
 

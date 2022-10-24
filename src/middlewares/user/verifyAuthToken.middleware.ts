@@ -1,7 +1,7 @@
-import { handleError } from "./../errors/appErrors";
+import { handleError } from "../../errors/appErrors";
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { AppError } from "../errors/appErrors";
+import { AppError } from "../../errors/appErrors";
 
 const verifyAuthToken = async (req: Request, res: Response, next: NextFunction) => {
     try {

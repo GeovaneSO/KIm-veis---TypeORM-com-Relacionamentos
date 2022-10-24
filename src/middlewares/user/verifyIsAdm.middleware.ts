@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { AppError, handleError } from "../errors/appErrors";
+import { AppError, handleError } from "../../errors/appErrors";
 
 const verifyIsAdm = async (req:Request, res: Response, next: NextFunction) => {
   try {

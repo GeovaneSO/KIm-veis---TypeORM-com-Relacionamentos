@@ -1,7 +1,7 @@
 import { Request, NextFunction, Response } from "express";
-import AppDataSource from "../data-source";
-import { User } from "../entities/user.entity";
-import { AppError, handleError } from "../errors/appErrors";
+import AppDataSource from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { AppError, handleError } from "../../errors/appErrors";
 
 const verifyUserId = async (req: Request, res: Response, next: NextFunction) => {
     try {
