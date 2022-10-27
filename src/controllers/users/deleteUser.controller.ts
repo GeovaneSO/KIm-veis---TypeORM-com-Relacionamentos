@@ -5,12 +5,12 @@ const deleteUserController = async (req: Request, res: Response) => {
 
     const id = req.params.id;
 
-        const isActive = req.user.isActive;
+    const isActive = req.user.isActive;
 
-        const deletedUser = await deleteUserService(id, isActive);
+    const deletedUser = await deleteUserService(id, isActive);
 
-        return res.status(204).json(deletedUser);
+    return res.status(204).json(deletedUser);
 
-    };
+};
 
 export default deleteUserController;

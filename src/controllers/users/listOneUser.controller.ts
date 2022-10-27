@@ -7,10 +7,10 @@ const listOneUserController = async (req: Request, res: Response) => {
 
     const id: string = req.params.id;
 
-        const user: IUser = await listUserProfileService(id);
-      
-        return res.status(200).json(instanceToPlain(user));
+    const user: IUser = await listUserProfileService(id);
+    
+    return res.status(200).json(instanceToPlain(user));
 
-    };
+};
 
 export default listOneUserController;
