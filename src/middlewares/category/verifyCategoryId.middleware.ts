@@ -4,29 +4,29 @@ import Categories from "../../entities/categories.entity";
 import { AppError } from "../../errors/appErrors";
 
 const verifyCategoryId = async (req: Request, res: Response, next: NextFunction) => {
-
+    
     try {
         
-        const categoryId = req.body.categoryId;
-     
+        const id =  req.params.id;
+        
         const categoryRepository = AppDataSource.getRepository(Categories);
-     
-        const category = await categoryRepository.findOneBy({id: categoryId});
+        
+        const category = await categoryRepository.findOneBy({id: id});
 
-        if(!category){throw new AppError(404, "Existing property")}
-
+        if(!category){throw new AppError(404, 'Category invalid')};
+        
         return next();
 
     } catch (error) {
 
         if(error instanceof AppError){
-       
-            return res.status(404).json({message: error.message});
-       
+
+            return res.status(404).json({message: error})
+
         };
 
-    }
+    };
 
-}
+};
 
 export default verifyCategoryId;

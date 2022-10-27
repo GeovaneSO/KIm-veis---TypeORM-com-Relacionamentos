@@ -19,8 +19,11 @@ const verifyAuthToken = async (req: Request, res: Response, next: NextFunction) 
         });
 
     } catch(error){
+
         if(error instanceof AppError){
+
             handleError(error, res)
+
         };
     };
 };

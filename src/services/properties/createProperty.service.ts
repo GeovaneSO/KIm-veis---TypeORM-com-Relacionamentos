@@ -2,7 +2,6 @@ import AppDataSource from "../../data-source";
 import Addresses from "../../entities/addresses.entity";
 import Categories from "../../entities/categories.entity";
 import Properties from "../../entities/properties.entity";
-import { AppError } from "../../errors/appErrors";
 import { createAddressSerializer, createPropertySerializer } from "../../serializers";
 import { IProperty, IPropertyRequest } from "./../../interfaces/properties/index";
 
@@ -35,9 +34,7 @@ const createPropertyService = async (property: IPropertyRequest): Promise<IPrope
         stripUnknown: false
     });
 
-    const {categoryId, size, address, value,} = serializedProperty;
-
-    const category = await categoryRepository.findOneBy({id: categoryId})
+    const category = await categoryRepository.findOneBy({id: serializedProperty.categoryId})
 
     const newProperty = propertyRepository.create(serializedProperty);
 
@@ -45,7 +42,7 @@ const createPropertyService = async (property: IPropertyRequest): Promise<IPrope
 
     if(category) {
     
-        newProperty.category = category?.id;
+        newProperty.category = category;
     
         await propertyRepository.save(newProperty);
         

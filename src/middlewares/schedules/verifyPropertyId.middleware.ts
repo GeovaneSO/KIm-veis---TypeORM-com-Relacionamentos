@@ -15,7 +15,7 @@ const verifyPropertyId = async (req: Request, res: Response, next: NextFunction)
        
         if(!property){throw new AppError(404, "Not existing property")};
        
-        next();
+        return next();
 
     } catch (error) {
         

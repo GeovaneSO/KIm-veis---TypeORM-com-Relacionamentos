@@ -4,6 +4,7 @@ import Categories from "../../entities/categories.entity";
 import { AppError, handleError } from "../../errors/appErrors";
 
 const verifyCategoryName = async (req: Request, res: Response, next: NextFunction) => {
+
     try {
         
         const categoryRepository = AppDataSource.getRepository(Categories);
@@ -23,7 +24,9 @@ const verifyCategoryName = async (req: Request, res: Response, next: NextFunctio
             handleError(error, res);
 
         };
-    }; 
+        
+    };
+     
 };    
 
 export default verifyCategoryName;

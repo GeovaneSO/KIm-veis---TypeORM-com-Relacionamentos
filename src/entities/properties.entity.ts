@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToOne, JoinColumn, OneToMany, ManyToOne } from "typeorm";
-import Decimal from 'decimal.js'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, OneToMany, ManyToOne } from "typeorm";
 import Addresses from "./addresses.entity";
 import Schedules_user_properties from "./schedules_user_properties.entity";
 import Categories from "./categories.entity";
+
 @Entity('properties')
 class Properties{
     @PrimaryGeneratedColumn('uuid')
@@ -38,7 +38,7 @@ class Properties{
         eager: true
     })
     @JoinColumn()
-    category: any
+    category: Categories
     
 }
 export default Properties;

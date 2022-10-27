@@ -9,7 +9,7 @@ const verifyState = async (req: Request, res: Response, next: NextFunction) => {
         
         if(state.length > 2){throw new AppError(400, "Misspelled state")};
 
-        next();
+        return next();
 
     } catch (error) {
 

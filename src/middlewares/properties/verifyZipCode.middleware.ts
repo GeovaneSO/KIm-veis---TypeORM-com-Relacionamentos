@@ -9,7 +9,7 @@ const verifyZipCode = async (req: Request, res: Response, next: NextFunction) =>
 
         if(zipCode.length > 8){throw new AppError(400, "Misspelled zip code")};
 
-        next();
+        return next();
 
     } catch (error) {
 
