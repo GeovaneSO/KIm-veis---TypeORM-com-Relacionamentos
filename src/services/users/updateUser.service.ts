@@ -4,9 +4,8 @@ import { IUser, IUserUpdate } from "../../interfaces/users";
 import { instanceToInstance } from "class-transformer";
 import { User } from "../../entities/user.entity";
 import { updateUserSerializer } from "../../serializers";
-import { AppError } from "../../errors/appErrors";
 
-const updateUserService = async (user: IUserUpdate, isAdm: boolean, id: string, tokenId: string): Promise<IUser | string> => {
+const updateUserService = async (user: IUserUpdate, id: string): Promise<IUser | string> => {
 
     const serialized = await updateUserSerializer.validate(user, {
         abortEarly: true,
@@ -30,6 +29,7 @@ const updateUserService = async (user: IUserUpdate, isAdm: boolean, id: string, 
     const updatedUser = instanceToInstance(await userRepository.findOneBy({id}));
     
     return updatedUser!;
-}
+
+};
 
 export default updateUserService;

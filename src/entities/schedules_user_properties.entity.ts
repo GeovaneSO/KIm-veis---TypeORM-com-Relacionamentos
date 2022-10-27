@@ -7,17 +7,17 @@ class Schedules_user_properties {
     @PrimaryGeneratedColumn('uuid')
     readonly id: string;
 
-    @Column('date', {name: 'date', nullable: true})
-    date: Date
+    @Column( {type: 'date' ,nullable: true})
+    date: string
 
-    @Column('time', {name: 'hour'})
-    hour: number;
+    @Column({type: "time"})
+    hour: string;
 
-    @ManyToOne(() => Properties, property => property.schedules)
-    property: string;
+    @ManyToOne(() => Properties)
+    property: Properties;
     
-    @ManyToOne(() => User, user => user.schedules)
-    user: string;
+    @ManyToOne(() => User)
+    user: User;
     
 }
 

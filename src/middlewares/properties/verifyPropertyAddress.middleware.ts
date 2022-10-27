@@ -16,7 +16,7 @@ const verifyAddress = async (req: Request, res: Response, next: NextFunction) =>
 
         if(addressFind){throw new AppError(400, "Existing property")};
 
-        next();
+        return next();
 
     } catch (error) {
        

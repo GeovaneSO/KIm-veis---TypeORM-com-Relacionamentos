@@ -9,6 +9,6 @@ const createPropertyController = async (req: Request, res: Response, next: NextF
 
     return res.status(201).json(newProperty);
 
-}
+};
 
 export default createPropertyController;

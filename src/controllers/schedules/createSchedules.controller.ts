@@ -9,7 +9,7 @@ const createSchedulesController = async (req: Request, res: Response) => {
     const userId = req.user.sub;
 
     const newSchedules = await createSchedulesService(schedules, userId);
-    console.log(newSchedules)
+ 
     return res.status(201).json(newSchedules);
 
 };
