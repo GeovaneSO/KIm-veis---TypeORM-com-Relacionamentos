@@ -7,6 +7,7 @@ import handleErrorMiddleware from "./middlewares/handleError.middleware";
 import categoriesRouter from "./routes/categories/categories.routes";
 import propertiesRouter from "./routes/properties/properties.routes";
 import schedulesRouter from "./routes/schedules/schedules.routes";
+import "express-async-error"
 
 const app = express();
 app.use(express.json());

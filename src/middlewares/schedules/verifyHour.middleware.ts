@@ -7,7 +7,7 @@ const verifyHour = async (req: Request, res: Response, next: NextFunction) => {
 
         const hour = new Date(schedules.date + ", " + schedules.hour).getHours();
 
-        if(hour >= 18 || hour < 8){throw new AppError(400, 'Outside opening hours')}
+        if(hour >= 18 || hour < 8){throw new AppError(400, 'Outside opening hours')};
 
        return next();
     

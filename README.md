@@ -9,7 +9,7 @@ yarn install
 
 **Atenção:** é necessário utilizar o `yarn` pois esse projeto foi iniciado com esse gerenciador de pacotes.
 
-Para verificar se já possui o gerenciador yarn instalado utilize o seguinte comando:
+Para verificar se já possui o gerenciador yarn instalado utilize o seguinte :
 
 ````
 yarn --version

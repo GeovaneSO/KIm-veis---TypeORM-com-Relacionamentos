@@ -13,7 +13,7 @@ const verifyAddress = async (req: Request, res: Response, next: NextFunction) =>
         const address: IAddressRequest = req.body.address;
 
         const addressFind = await addressRepository.findOneBy({number: address.number});
-
+            
         if(addressFind){throw new AppError(400, "Existing property")};
 
         return next();

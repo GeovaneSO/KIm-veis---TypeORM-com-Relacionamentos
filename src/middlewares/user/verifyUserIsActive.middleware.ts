@@ -15,7 +15,9 @@ const verifyIsActive = async (req: Request, res: Response, next: NextFunction) =
         if(!user ){throw new AppError(404,'Invalid id')};
 
         if(!user?.isActive ){throw new AppError(400,'Inactive user')};
-        next();
+
+        return next();
+    
     } catch (error) {
         if(error instanceof AppError){
             handleError(error, res);

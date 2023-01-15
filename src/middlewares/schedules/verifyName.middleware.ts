@@ -15,7 +15,7 @@ const verifyCategoryName = async (req: Request, res: Response, next: NextFunctio
         
         if(category){throw new AppError(400,"category already exists")};
 
-        next();
+        return next();
 
     } catch (error) {
 
