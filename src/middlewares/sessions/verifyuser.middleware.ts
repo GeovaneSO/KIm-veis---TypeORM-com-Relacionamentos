@@ -15,7 +15,7 @@ const verifyUser = async (req: Request, res: Response, next: NextFunction) =>{
             abortEarly: true,
             stripUnknown: false
         });
-    
+        
         const userRepository = AppDataSource.getRepository(User);
 
         const findUser = await userRepository.findOneBy({email: serialized.email});

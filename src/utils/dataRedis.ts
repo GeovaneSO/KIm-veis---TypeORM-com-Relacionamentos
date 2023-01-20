@@ -1,15 +1,16 @@
 import { RateLimiterRedis } from "rate-limiter-flexible";
 import RedisClient from "@redis/client/dist/lib/client";
 import { Redis } from "ioredis";
+import "dotenv/config"
 
 const maxConsecutiveFailsByUserName = 5;
 const maxWrongAttemptsByIPperDay = 100;
 const maxConsecutiveFailsByUserNameAndIP = 10;
 
 const redisClient = new Redis({
-    host: "redis-18202.c84.us-east-1-2.ec2.cloud.redislabs.com",
-    port: 18202,
-    password: "bcZkeG3UaiyCtXnOursBtZZARM5CXu82",
+    host: process.env.HOST_REDIS,
+    port: Number(process.env.PORT_REDIS),
+    password: process.env.PASSWORD_REDIS,
 });
 
 const limiterConsecutiveFailsByUsername = new RateLimiterRedis({
