@@ -19,16 +19,11 @@ const createSchedulesService = async (schedules: IScheduleRequest, userId: strin
     newSchedules.date = schedules.date;
     newSchedules.hour = schedules.hour;
     newSchedules.user = user!;
+    newSchedules.property = property!;
     
-    if(property){
-        newSchedules.property = property;
-    };
-
     await scheduleRepository.save(newSchedules);
  
-    const message = {message: 'scheduled visit'};
-
-    return message;
+    return {message: 'scheduled visit'};
 }
 
 export default createSchedulesService;

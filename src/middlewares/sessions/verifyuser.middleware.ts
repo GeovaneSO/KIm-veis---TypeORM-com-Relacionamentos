@@ -6,7 +6,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppError } from "../../errors/appErrors";
 
 const verifyUser = async (req: Request, res: Response, next: NextFunction) =>{
-    
+    let count = 0
     try {
 
         const user = req.body;
@@ -15,12 +15,12 @@ const verifyUser = async (req: Request, res: Response, next: NextFunction) =>{
             abortEarly: true,
             stripUnknown: false
         });
-    
+        
         const userRepository = AppDataSource.getRepository(User);
 
         const findUser = await userRepository.findOneBy({email: serialized.email});
     
-        if(!findUser) { throw new AppError(403, "Account not found")};
+        if(!findUser) {throw new AppError(403, "Account not found")};
     
         const passwordMatch = await bcrypt.compare(serialized.password, findUser.password);
     

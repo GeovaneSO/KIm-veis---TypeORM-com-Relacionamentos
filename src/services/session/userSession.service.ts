@@ -25,7 +25,7 @@ const userLoginService = async (user: IUserLogin): Promise <object> => {
 
     const userData = instanceToInstance(findUser);
     
-    return {token: token, user: userData};
+    return {token: token};
 
 };
 

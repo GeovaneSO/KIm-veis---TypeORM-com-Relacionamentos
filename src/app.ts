@@ -1,3 +1,4 @@
+import "express-async-error"
 import "reflect-metadata"
 import express from "express"
 
