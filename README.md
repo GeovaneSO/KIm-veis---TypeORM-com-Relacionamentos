@@ -22,7 +22,7 @@ npm install --global yarn
 ````
 <br>
 
-# **Sobre a feature de proteção de ataques de força bruta**
+# **Sobre a feature de proteção a ataques de força bruta**
 
 Um Ataque de Força Bruta consiste em tentar acertar credenciais válidas para uma aplicação a partir de tentativa e erro de todos os valores possíveis. São ataques feitos por scripts ou programas que automatizam as requisições para a funcionalidade de login da aplicação, enviando diferentes combinações de nomes de usuário e senhas, até que uma credencial válida seja encontrada. Embora a Força Bruta seja comumente utilizada contra mecanismos de autenticação, um atacante pode se beneficiar de ataques contra quaisquer funcionalidades que processem dados. Nos mecanismos de cadastro e recuperação de senha, por exemplo, este abuso pode gerar consequências danosas à aplicação alvo.
 
